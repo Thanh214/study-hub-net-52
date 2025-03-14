@@ -32,15 +32,19 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section className="pt-32 pb-20 px-4 tech-background relative bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-blue-500/10 to-transparent dark:from-blue-500/5 animate-glow"></div>
+      </div>
+      
       <motion.div 
-        className="container mx-auto text-center"
+        className="container mx-auto text-center relative z-10"
         initial="hidden"
         animate="visible"
         variants={container}
       >
         <motion.h1 
-          className="text-5xl font-bold text-gray-900 dark:text-white mb-6"
+          className="text-5xl font-bold text-gray-900 dark:text-white mb-6 glow-effect"
           variants={item}
         >
           {t('app.title')}

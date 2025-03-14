@@ -106,6 +106,15 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
         },
+        "tech-background": {
+          "0%": { transform: "translateZ(-100px)", opacity: "0" },
+          "40%": { opacity: "0.6" },
+          "100%": { transform: "translateZ(50px)", opacity: "0" },
+        },
+        "glow": {
+          "0%, 100%": { opacity: "0.8", filter: "brightness(1)" },
+          "50%": { opacity: "1", filter: "brightness(1.2)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -114,6 +123,12 @@ export default {
         "fade-out": "fade-out 0.3s ease-out",
         "float": "float 3s ease-in-out infinite",
         "pulse-light": "pulse-light 2s ease-in-out infinite",
+        "tech-background": "tech-background 15s linear infinite",
+        "glow": "glow 4s ease-in-out infinite",
+      },
+      backgroundImage: {
+        "tech-grid": "url('/lovable-uploads/6dfbb46b-bddb-43f0-a94d-295ba1a3abca.png')",
+        "hero-pattern": "linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 100%)",
       },
     },
   },
