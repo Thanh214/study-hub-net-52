@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'vi' | 'en';
@@ -21,6 +20,14 @@ const translations = {
     'footer.contact': 'Liên hệ',
     'footer.terms': 'Điều khoản',
     'footer.privacy': 'Bảo mật',
+    'app.title': 'Khám phá tiềm năng học tập của bạn',
+    'app.subtitle': 'EduConnect - Nền tảng học tập trực tuyến kết nối bạn với tri thức và cộng đồng',
+    'app.startLearning': 'Bắt đầu học ngay',
+    'app.learnMore': 'Tìm hiểu thêm',
+    'nav.courses': 'Khóa học',
+    'nav.community': 'Cộng đồng',
+    'nav.about': 'Giới thiệu',
+    'features.title': 'Tính năng nổi bật',
   },
   en: {
     'auth.login': 'Login',
@@ -33,6 +40,14 @@ const translations = {
     'footer.contact': 'Contact',
     'footer.terms': 'Terms',
     'footer.privacy': 'Privacy',
+    'app.title': 'Discover Your Learning Potential',
+    'app.subtitle': 'EduConnect - An online learning platform connecting you with knowledge and community',
+    'app.startLearning': 'Start Learning Now',
+    'app.learnMore': 'Learn More',
+    'nav.courses': 'Courses',
+    'nav.community': 'Community',
+    'nav.about': 'About',
+    'features.title': 'Featured Functions',
   },
 };
 
