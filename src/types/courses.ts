@@ -8,7 +8,11 @@ export type Enrollment = Tables<"enrollments">;
 
 // Additional types that might be needed for the UI
 export interface CourseWithInstructor extends Course {
-  instructor?: Tables<"profiles"> | null;
+  instructor: {
+    id: string;
+    full_name: string | null;
+    avatar_url: string | null;
+  } | null;
   lessonCount?: number;
   enrollmentCount?: number;
 }

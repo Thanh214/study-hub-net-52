@@ -13,14 +13,22 @@ export const CoursesListWrapper = () => {
         .from('courses')
         .select(`
           *,
-          instructor_id,
           instructor:profiles(id, full_name, avatar_url)
         `)
         .eq('is_published', true)
         .order('created_at', { ascending: false });
       
       if (error) throw error;
-      return data || [];
+      
+      // Transform data to match CourseWithInstructor type
+      return (data || []).map(course => ({
+        ...course,
+        instructor: course.instructor ? {
+          id: course.instructor.id,
+          full_name: course.instructor.full_name,
+          avatar_url: course.instructor.avatar_url
+        } : null
+      }));
     }
   });
 
