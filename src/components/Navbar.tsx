@@ -23,25 +23,9 @@ export const Navbar = () => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Khóa học</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  {["Phổ thông", "Đại học", "Ngoại ngữ", "Kỹ năng mềm"].map((category) => (
-                    <li key={category} className="row-span-3">
-                      <NavigationMenuLink asChild>
-                        <a
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/50 to-primary p-6 no-underline outline-none focus:shadow-md"
-                          href="#"
-                        >
-                          <div className="mb-2 mt-4 text-lg font-medium text-white">
-                            {category}
-                          </div>
-                        </a>
-                      </NavigationMenuLink>
-                    </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
+              <Link to="/courses" className="px-4 py-2 text-gray-700 hover:text-primary transition-colors">
+                Khóa học
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link to="/community" className="px-4 py-2 text-gray-700 hover:text-primary transition-colors">
@@ -60,10 +44,12 @@ export const Navbar = () => {
           <Button variant="ghost" size="icon">
             <Search className="h-5 w-5" />
           </Button>
-          <Button>
-            <User className="h-5 w-5 mr-2" />
-            Đăng nhập
-          </Button>
+          <Link to="/auth">
+            <Button>
+              <User className="h-5 w-5 mr-2" />
+              Đăng nhập
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
