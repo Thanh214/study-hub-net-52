@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'vi' | 'en';
@@ -28,6 +29,14 @@ const translations = {
     'nav.community': 'Cộng đồng',
     'nav.about': 'Giới thiệu',
     'features.title': 'Tính năng nổi bật',
+    'features.library': 'Thư viện học liệu',
+    'features.libraryDesc': 'Kho tài liệu đa dạng từ sách, video đến bài tập tương tác',
+    'features.ai': 'AI cá nhân hóa',
+    'features.aiDesc': 'Gợi ý học tập thông minh dựa trên trình độ của bạn',
+    'features.community': 'Cộng đồng học tập',
+    'features.communityDesc': 'Kết nối với giáo viên và học sinh trên toàn quốc',
+    'features.online': 'Học trực tuyến',
+    'features.onlineDesc': 'Tham gia các lớp học trực tuyến chất lượng cao',
   },
   en: {
     'auth.login': 'Login',
@@ -48,6 +57,14 @@ const translations = {
     'nav.community': 'Community',
     'nav.about': 'About',
     'features.title': 'Featured Functions',
+    'features.library': 'Learning Library',
+    'features.libraryDesc': 'Diverse materials from books and videos to interactive exercises',
+    'features.ai': 'AI Personalization',
+    'features.aiDesc': 'Smart learning suggestions based on your level',
+    'features.community': 'Learning Community',
+    'features.communityDesc': 'Connect with teachers and students nationwide',
+    'features.online': 'Online Learning',
+    'features.onlineDesc': 'Join high-quality online classes',
   },
 };
 

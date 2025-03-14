@@ -1,25 +1,72 @@
 
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
+  const { t } = useLanguage();
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
+
+  const buttonVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+    tap: { scale: 0.95 }
+  };
+
   return (
-    <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto text-center">
-        <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
-          Khám phá tiềm năng học tập của bạn
-        </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in">
-          EduConnect - Nền tảng học tập trực tuyến kết nối bạn với tri thức và cộng đồng
-        </p>
-        <div className="flex justify-center gap-4 animate-fade-in">
-          <Button size="lg" className="bg-primary hover:bg-primary-600">
-            Bắt đầu học ngay
-          </Button>
-          <Button size="lg" variant="outline">
-            Tìm hiểu thêm
-          </Button>
-        </div>
-      </div>
+    <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <motion.div 
+        className="container mx-auto text-center"
+        initial="hidden"
+        animate="visible"
+        variants={container}
+      >
+        <motion.h1 
+          className="text-5xl font-bold text-gray-900 dark:text-white mb-6"
+          variants={item}
+        >
+          {t('app.title')}
+        </motion.h1>
+        <motion.p 
+          className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+          variants={item}
+        >
+          {t('app.subtitle')}
+        </motion.p>
+        <motion.div 
+          className="flex justify-center gap-4"
+          variants={item}
+        >
+          <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+            <Button size="lg" className="bg-primary hover:bg-primary-600">
+              {t('app.startLearning')}
+            </Button>
+          </motion.div>
+          <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+            <Button size="lg" variant="outline" className="border-2 dark:border-gray-700 dark:text-white">
+              {t('app.learnMore')}
+            </Button>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
