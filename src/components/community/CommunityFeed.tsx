@@ -1,8 +1,7 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { MessageSquare, Heart, Share2 } from 'lucide-react';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const posts = [
   {
@@ -22,60 +21,30 @@ const posts = [
 ];
 
 export const CommunityFeed = () => {
-  const [likedPosts, setLikedPosts] = useState<number[]>([]);
-
-  const handleLike = (postId: number) => {
-    if (likedPosts.includes(postId)) {
-      setLikedPosts(likedPosts.filter(id => id !== postId));
-    } else {
-      setLikedPosts([...likedPosts, postId]);
-    }
-  };
-
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      {posts.map((post) => {
-        const isLiked = likedPosts.includes(post.id);
-        const initials = post.author
-          .split(' ')
-          .map(name => name[0])
-          .join('');
-
-        return (
-          <Card key={post.id} className="bg-white shadow-sm hover:shadow-md transition-shadow">
-            <CardContent className="p-6">
-              <div className="flex items-center mb-4">
-                <Avatar className="h-10 w-10 mr-3">
-                  <AvatarFallback className="bg-primary text-white">
-                    {initials}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="font-semibold">{post.author}</div>
-              </div>
-              <p className="mb-6 text-gray-800">{post.content}</p>
-              <div className="flex items-center gap-6 text-gray-600">
-                <button 
-                  className="flex items-center gap-2 hover:text-primary transition-colors"
-                  onClick={() => handleLike(post.id)}
-                >
-                  <Heart 
-                    className={`w-5 h-5 ${isLiked ? 'fill-primary text-primary' : ''}`} 
-                  />
-                  <span>{isLiked ? post.likes + 1 : post.likes}</span>
-                </button>
-                <button className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <MessageSquare className="w-5 h-5" />
-                  <span>{post.comments}</span>
-                </button>
-                <button className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Share2 className="w-5 h-5" />
-                  <span>Chia sẻ</span>
-                </button>
-              </div>
-            </CardContent>
-          </Card>
-        );
-      })}
+      {posts.map((post) => (
+        <Card key={post.id}>
+          <CardContent className="p-6">
+            <div className="font-semibold mb-2">{post.author}</div>
+            <p className="mb-4">{post.content}</p>
+            <div className="flex gap-4 text-gray-600">
+              <button className="flex items-center gap-1">
+                <Heart className="w-4 h-4" />
+                {post.likes}
+              </button>
+              <button className="flex items-center gap-1">
+                <MessageSquare className="w-4 h-4" />
+                {post.comments}
+              </button>
+              <button className="flex items-center gap-1">
+                <Share2 className="w-4 h-4" />
+                Chia sẻ
+              </button>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   );
 };
