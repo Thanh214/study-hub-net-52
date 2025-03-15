@@ -1,10 +1,34 @@
 
-import { Tables } from "@/integrations/supabase/types";
+// Define course types without Supabase dependencies
+export interface Course {
+  id: string;
+  title: string;
+  description: string | null;
+  image_url: string | null;
+  instructor_id: string | null;
+  is_published: boolean | null;
+  price: number | null;
+  created_at: string | null;
+  updated_at: string | null;
+}
 
-// Use these types that extend from the auto-generated Supabase types
-export type Course = Tables<"courses">;
-export type Lesson = Tables<"lessons">;
-export type Enrollment = Tables<"enrollments">;
+export interface Lesson {
+  id: string;
+  title: string;
+  description: string | null;
+  content: string | null;
+  course_id: string;
+  order_index: number;
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+export interface Enrollment {
+  id: string;
+  user_id: string;
+  course_id: string;
+  enrolled_at: string | null;
+}
 
 // Additional types that might be needed for the UI
 export interface CourseWithInstructor extends Course {
