@@ -20,8 +20,8 @@ export const AuthForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Chức năng đang phát triển",
-      description: "Tính năng này sẽ sớm được hoàn thiện",
+      title: t('auth.featureInDevelopment'),
+      description: t('auth.comingSoon'),
     });
   };
 
@@ -33,9 +33,9 @@ export const AuthForm = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-md mx-auto bg-card dark:bg-card/80 p-8 rounded-lg shadow-lg border border-border"
+          className="max-w-md mx-auto bg-card p-8 rounded-lg shadow-lg border border-border"
         >
-          <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
             {isLogin ? t('auth.login') : t('auth.register')}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
